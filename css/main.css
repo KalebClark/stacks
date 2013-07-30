@@ -322,6 +322,19 @@ header {
 	opacity: 1.0 !important;
 }
 
+#desktop-ajax-load {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 22px;
+  width: 126px;
+}
+
+.ajax-load {
+  background: url('../img/ajax-loader.gif'); 
+  z-index: 1;
+}
+
 header #logo a:hover {
 	color: #FFFFFF;	
 }

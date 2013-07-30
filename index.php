@@ -16,7 +16,7 @@ $(function() {
 </script>
 <body>
   
-
+<div id="desktop-ajax-load" class="ajax-load"></div>
 <!-- Header -->
 <header>
   <div class="container">

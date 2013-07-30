@@ -12,7 +12,7 @@ var emerge = {
 
   ajax_get: function(url, outDiv) {
     emerge.logger('AJAX->GET: '+url+' => '+outDiv);
-    //$('#ajax-load').css('display', 'block');
+    //emerge.ajax_loader_on();
 	  var retVal;
     jQuery.ajax({
       url: url,
@@ -20,10 +20,10 @@ var emerge = {
       async: false,
       success: function(data, stat, jqXHR) {
      	  jQuery('#' + outDiv).html(data);
-        jQuery('#ajax-load').css('display', 'none');
 			  retVal = data;
       }
     });
+    //emerge.ajax_loader_off();
 	  return retVal;
   },
 
@@ -62,6 +62,15 @@ var emerge = {
       }
     });
     return retVal;
+  },
+  ajax_loader_on: function() {
+    emerge.logger('loader ON');
+    //jQuery('.ajax-load').show();
+  },
+  ajax_loader_off: function() {
+    emerge.logger('loader OFF');
+    //jQuery('.ajax-load').hide();
+
   },
 
   logger: function(message) {

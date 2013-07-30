@@ -1,5 +1,19 @@
 jQuery(document).ready(function(){
 
+      /* Setup Ajax Loaders
+      *  ================== */
+      jQuery(document).ajaxStart(function() {
+        jQuery('.ajax-load').show();
+      });
+
+      jQuery(document).ajaxComplete(function() {
+        jQuery('.ajax-load').hide();
+      });
+  //    var dalHeight          = jQuery('#desktop-ajax-load').height();
+  //    var dalContainerHeight = jQuery('header').height();
+ //     jQuery('#desktop-ajax-load').css('top', ((dalContainerHeight /2) - (dalHeight / 2)));
+
+
  		 // desktop thumbnail hover
         jQuery(document).on('mouseenter', '.thumbnails-wrapper img', function(e){
             var target = jQuery(this).closest('li'),
