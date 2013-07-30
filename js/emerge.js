@@ -12,7 +12,6 @@ var emerge = {
 
   ajax_get: function(url, outDiv) {
     emerge.logger('AJAX->GET: '+url+' => '+outDiv);
-    //emerge.ajax_loader_on();
 	  var retVal;
     jQuery.ajax({
       url: url,
@@ -23,7 +22,6 @@ var emerge = {
 			  retVal = data;
       }
     });
-    //emerge.ajax_loader_off();
 	  return retVal;
   },
 
@@ -63,46 +61,12 @@ var emerge = {
     });
     return retVal;
   },
-  ajax_loader_on: function() {
-    emerge.logger('loader ON');
-    //jQuery('.ajax-load').show();
-  },
-  ajax_loader_off: function() {
-    emerge.logger('loader OFF');
-    //jQuery('.ajax-load').hide();
 
-  },
-
+  /* Logger function
+  *  =============== */
   logger: function(message) {
     if(emerge.debug == 1) {
       console.log(message);
     }
   }
 } /* == END EMERGE ========================================================= */
-
-
-// Utility Dialog
-function genericDialog(title, url) {
-	var formBody = jQuery('<div>', {
-		title: title,
-		id: 'utilDialog'
-	});
-
-  var data = htmlReq(url);
-	formBody.html(data);
-	formBody.dialog({
-		height: 400,
-		width: 750,
-		show: 'fade',
-		close: function() {
-			jQuery(this).remove();
-		},
-		buttons: {
-			'Close': function() {
-				jQuery(this).effect('fade', function() {
-					jQuery(this).remove();
-				});
-			}
-		}
-	});
-}
