@@ -7,9 +7,9 @@ $book_title = filter_var($_POST['book_title']);
 $category   = filter_var($_POST['cat']);
 
 $query = "
-  INSERT INTO books (id, box_id, genre_id, category, ext_ref, author, book_title)
+  INSERT INTO books (id, active, box_id, genre_id, category, ext_ref, author, book_title)
     VALUES
-      ('0', '1', '1', '$category', '$ext_ref', '$author', '$book_title');
+      ('0', '1', '1', '1', '$category', '$ext_ref', '$author', '$book_title');
 ";
 $sql = new mysql();
 $id = $sql->insert($query);

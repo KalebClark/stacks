@@ -43,8 +43,9 @@ function logger($message, $class) {
 }
 
 function jsError($message) {
+  $message = addslashes($message);
 ?><script type="text/javascript">
-	alert("<?=$message; ?>");
+  console.log('<?=$message;?>');
 </script><?
 }
 ?>

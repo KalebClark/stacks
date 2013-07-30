@@ -39,5 +39,5 @@ function mjs_update() {
 		SET $field = '$value'
 		WHERE id = '$id'
 	";
-	//$sql->update($query);
+	$sql->update($query);
 }

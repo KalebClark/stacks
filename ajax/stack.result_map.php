@@ -60,7 +60,7 @@ jQuery(function() {
     /* Build Markers
     *  ============= */
     jQuery.ajax({
-      url: 'ajax/get_markers.php?lat='+lat+'&lon='+lon,
+      url: 'ajax/gmaps.fetch_markers.php?lat='+lat+'&lon='+lon,
       type: "POST",
       success: function(data) {
         /* Request was a success */
@@ -79,7 +79,7 @@ jQuery(function() {
           /* Get Result List per item
           *  ======================== */
           jQuery.ajax({
-            url: 'ajax/stack_detail_tile.php?id='+val.id+'&distance='+val.distance,
+            url: 'ajax/stack.tile_detail.php?id='+val.id+'&distance='+val.distance,
             type: 'GET',
             success: function(details) {
               jQuery('#result_list').append(details);

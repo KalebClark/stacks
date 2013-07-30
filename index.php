@@ -4,19 +4,16 @@
 require_once('inc.php');
 include(ROOT_PATH.'/lib/html/head.php');
 ?>
-<script type="text/javascript">
-$(function() {
-  emerge.ajax_get('ajax/main.php', 'main_content');
-});
-  function search_for_book() {
-    var search_term = jQuery('#search_term').val();
-    emerge.ajax_get('ajax/google_books_rest.php?query='+search_term, 'slider');
-  }
-
-</script>
 <body>
-  
-<div id="desktop-ajax-load" class="ajax-load"></div>
+<div id="top-bar">
+  <div id="desktop-ajax-load" class="ajax-load"></div>
+  <nav id="menu">
+    <ul id="top-nav">
+      <li><a href="#" id="nav-login">Login</a></li>
+      <li><a href="#" id="nav-profile">My Stacks</a></li>
+    </ul>
+  </nav>
+</div>
 <!-- Header -->
 <header>
   <div class="container">
@@ -57,6 +54,7 @@ $(function() {
 
 
 <!-- Start Slider -->
+<!-- We are using id='slider' as the main insert point for ajax calls. -->
 <section id="slider">
     <div class="fullwidthbanner-container">
         <div class="fullwidthbanner">
@@ -133,9 +131,6 @@ $(function() {
     </div>
 </section>
 <!-- End Credits -->
-
-  <div id="main_content" data-role="content"></div>
-
 
 </body>
 </html>

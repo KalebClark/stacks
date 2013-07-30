@@ -304,6 +304,27 @@ h6 {
 /* ==================================================
    Header
 ================================================== */
+#top-bar {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  width: 100%;
+}
+
+#user-info {
+  color: #fff;
+  float: right;
+  padding-right: 30px;
+}
+
+.content-box {
+  background: #FFF;
+}
+
+#host-content {
+  padding-left: 10px;
+  border-top: 1px solid #666;
+}
 
 header {
 	background: rgba(0, 0, 0, .75);
@@ -323,9 +344,9 @@ header {
 }
 
 #desktop-ajax-load {
-  position: absolute;
-  top: 5px;
-  left: 5px;
+  position: relative;
+  top: 0px;
+  left: 0px;
   height: 22px;
   width: 126px;
 }
@@ -333,6 +354,7 @@ header {
 .ajax-load {
   background: url('../img/ajax-loader.gif'); 
   z-index: 1;
+  display: none;
 }
 
 header #logo a:hover {
@@ -340,6 +362,54 @@ header #logo a:hover {
 }
 
 /* Navigation */
+
+/* top nav */
+
+nav#menu #top-nav {
+  margin: 0;
+  padding: 0;
+  padding-right: 30px;
+}
+
+nav#menu #top-nav li {
+  color: #FFF;
+  position: relative;
+  list-style: none;
+  float: left;
+  padding: 0 8px;    
+}
+nav#menu #top-nav li a {
+  color: #FFF;
+  display: block;
+  letter-spacing: -0.2px;
+}
+nav#menu #top-nav li a:hover {
+  color: #666;
+}
+
+/* Host Nav */
+nav#menu #host-nav {
+  margin: 0;
+  padding: 0;
+  padding-right: 30px;
+}
+
+nav#menu #host-nav li {
+  color: #000;
+  position: relative;
+  list-style: none;
+  float: left;
+  padding: 0 8px;    
+}
+nav#menu #host-nav li a {
+  color: #000;
+  display: block;
+  letter-spacing: -0.2px;
+}
+nav#menu #host-nav li a:hover {
+  color: #666;
+}
+/* main nav */
 
 nav#menu {
 	font-family: 'SegoeUI-Light', Helvetica, Arial, sans-serif;
@@ -1047,6 +1117,35 @@ a.tile {
 	display: inline-block;
 	position: relative;
 }
+
+/* Book Table */
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+table.gridtable {
+  padding-top: 10px;
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 1px;
+border-color: #666666;
+border-collapse: collapse;
+}
+table.gridtable th {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #dedede;
+}
+table.gridtable td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #ffffff;
+}
+
+
+/* END Book Table */
 
 /* STACKS LIST */
 

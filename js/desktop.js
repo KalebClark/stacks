@@ -51,24 +51,33 @@ jQuery(document).ready(function(){
         });
     /* Submit search form
     *  ================== */
-    
 
     jQuery('#search-box').on('keydown', function(e) {
       if(e.which == 13) {
         var search_term = jQuery('#search-box').val();
-        emerge.ajax_get('ajax/book_search.php?search_term='+search_term, 'slider');
+        emerge.ajax_get('ajax/book.result_map.php?search_term='+search_term, 'slider');
       }
     });
 
     /* Menu Click Events
     *  ================= */
     jQuery('#menu-stacks').on('click', function() {
-      emerge.ajax_get('ajax/book_result_map.php', 'slider');
+      emerge.ajax_get('ajax/stack.result_map.php', 'slider');
     });
 
     jQuery('#menu-genres').on('click', function() {
-      emerge.ajax_get('ajax/list_genres.php', 'slider');
+      emerge.ajax_get('ajax/genres.list.php', 'slider');
     });
+
+    /* Top Menu Click Events
+    *  ===================== */
+    jQuery('#nav-login').on('click', function() {
+      emerge.ajax_get('ajax/auth.form.login.php', 'slider');
+    });
+    jQuery('#nav-profile').on('click', function() {
+      emerge.ajax_get('ajax/host.main.php', 'slider');
+    });
+
 
         // filter through genres
         var genreSlides;

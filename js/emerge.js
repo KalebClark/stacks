@@ -18,6 +18,7 @@ var emerge = {
       type: 'GET',
       async: false,
       success: function(data, stat, jqXHR) {
+        jQuery('#' + outDiv).empty();
      	  jQuery('#' + outDiv).html(data);
 			  retVal = data;
       }

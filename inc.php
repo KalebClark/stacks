@@ -5,7 +5,6 @@
 defined('ROOT_PATH') or define('ROOT_PATH', realpath(dirname(__FILE__)));
 include(ROOT_PATH.'/conf/site-config.php');
 
-
 // Include all files below this line ----------------------------------------
 include(ROOT_PATH.'/lib/util.php');
 include(ROOT_PATH.'/lib/mysqli.php');

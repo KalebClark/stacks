@@ -1,6 +1,7 @@
 <?
 include('../inc.php');
 ?>
+<div class="container content-box">
 <form id="user_login">
 <div>
   <input type="text" id="username" name="username" value="Username" />
@@ -14,4 +15,5 @@ include('../inc.php');
 </div>
 <div>
   <button onClick="host.signup();">Create Account</button>
+</div>
 </div>
