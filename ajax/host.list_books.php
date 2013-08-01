@@ -2,17 +2,36 @@
 include('../inc.php');
 $sql = new mysql();
 
-$id = filter_var($_GET['stackid'], FILTER_VALIDATE_INT);
+$uid  = $user->id;
+
+$stack_query = "
+  SELECT id
+  FROM stacks
+  WHERE user_id = '$uid'
+";
+$stack = $sql->getRows($stack_query);
+if(count($stack) == 0) {
+  ?>
+  <h3>You do not have a stack, Shall we create one?</h3>
+  <div id="create-stack"></div>
+  <script type="text/javascript">
+    emerge.ajax_get('ajax/stack.create.php', 'create-stack');
+  </script>
+  <?
+  exit;
+}
+$stack_id = $stack[0]->id;
 
 $query = "
   SELECT *
   FROM books
-  WHERE box_id = '$id'
+  WHERE stack_id = '$stack_id'
     AND active = '1'
   ORDER BY book_title
 ";
 $rows = $sql->getRows($query);
 ?>
+<input type="hidden" id="stack_id" value="<?=$stack_id;?>" />
 <h3>My Books</h3>
 <table class="gridtable">
  <thead>

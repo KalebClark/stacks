@@ -4,12 +4,6 @@ var host = {
   */
   register_user: function() {
     var user_id = emerge.ajax_post_form('ajax/host.register.php', 'register_host');
-    console.log(user_id+' this is userid');
-    if(user_id > 0) {
-      emerge.ajax_get('ajax/host.form.create_password.php?uid='+user_id, 'slider');
-    } else {
-      $('#host_alerts').html('That username is already taken. Please try a different username');
-    }
   },
 
   /* Create Password
@@ -31,7 +25,7 @@ var host = {
   *  ========== */
   login: function() {
     var valid = emerge.ajax_post_form('ajax/auth.validate.php', 'user_login');
-//    emerge.ajax_get('ajax/host.main.php', 'slider');
+    emerge.reload_page();
   },
 
   /* Host Signup

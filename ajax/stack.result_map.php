@@ -22,6 +22,7 @@ include('../inc.php');
   z-index: 99;
 }
 </style>
+
 <div id="result_map_canvas"></div>
 <div id="results">
   <div id="result_list"></div>
@@ -56,6 +57,7 @@ jQuery(function() {
       zoomControl: true
     };
     var map = new google.maps.Map(document.getElementById("result_map_canvas"), mapOptions);
+    console.log(map);
 
     /* Build Markers
     *  ============= */
@@ -73,7 +75,7 @@ jQuery(function() {
           markers[i] = new google.maps.Marker({
             position: stack_latlng,
             map: map,
-            title: val.box_title
+            title: val.stack_title
           });
 
           /* Get Result List per item
@@ -88,7 +90,7 @@ jQuery(function() {
 
           /* Setup Click event for each marker */
           google.maps.event.addListener(markers[i], 'click', function() {
-            console.log(val.box_title)
+            console.log(val.stack_title)
           });
         });
       }

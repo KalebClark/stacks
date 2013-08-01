@@ -4,6 +4,8 @@ include('../inc.php');
 $query_term   = filter_var($_GET['query'], FILTER_SANITIZE_STRING);
 $query_term   = urlencode($query_term);
 
+$stack_id     = filter_var($_GET['stack_id'], FILTER_VALIDATE_INT);
+
 $key          = "AIzaSyAJsXs9HHywzBcR_JSfcgQeWmrEyaPu28c";
 $google_url   = "https://www.googleapis.com/books/v1/";
 $query        = "volumes?q=".$query_term;
@@ -24,7 +26,8 @@ foreach($book_array->items as $book) {
     'ext_ref' => $isbn_10,
     'author'  => $book->volumeInfo->authors[0], 
     'book_title' => $book->volumeInfo->title,
-    'category'  => $book->volumeInfo->categories[0]
+    'category'  => $book->volumeInfo->categories[0],
+    'stack_id'  => $stack_id
   );
   $json = json_encode($json_out);
   ?>
@@ -42,7 +45,7 @@ foreach($book_array->items as $book) {
 function add_book(id) {
   var obj = jQuery('#'+id).html();
   obj = eval('('+obj+')');
-  var uri = 'ext_ref='+obj.ext_ref+'&book_title='+obj.book_title+'&author='+obj.author+'&cat='+obj.category;
+  var uri = 'ext_ref='+obj.ext_ref+'&book_title='+obj.book_title+'&author='+obj.author+'&cat='+obj.category+'&stack_id='+obj.stack_id;
   //uri = encodeURI(uri);
 
   var unique_id = emerge.ajax_post('ajax/book.add.php', uri);

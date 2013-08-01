@@ -51,7 +51,6 @@ jQuery(document).ready(function(){
         });
     /* Submit search form
     *  ================== */
-
     jQuery('#search-box').on('keydown', function(e) {
       if(e.which == 13) {
         var search_term = jQuery('#search-box').val();
@@ -74,10 +73,13 @@ jQuery(document).ready(function(){
     jQuery('#nav-login').on('click', function() {
       emerge.ajax_get('ajax/auth.form.login.php', 'slider');
     });
+    jQuery('#nav-logout').on('click', function() {
+      emerge.ajax_get('ajax/auth.logout.php', 'slider');
+      jQuery(this).remove();
+    });
     jQuery('#nav-profile').on('click', function() {
       emerge.ajax_get('ajax/host.main.php', 'slider');
     });
-
 
         // filter through genres
         var genreSlides;

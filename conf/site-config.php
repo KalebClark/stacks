@@ -24,7 +24,9 @@ $site_config = array (
 			'charset'	=> 'utf8',
 			'jquery'	=> true,
 			'jquery_theme' => 'smoothness',
-			'google_api'	=> false
+      'google_sensor'   => 'true',
+			'google_api_key'	=> 'AIzaSyAJsXs9HHywzBcR_JSfcgQeWmrEyaPu28c'
+
 		)
 );
 ?>

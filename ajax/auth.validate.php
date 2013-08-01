@@ -2,17 +2,20 @@
 include('../inc.php');
 $username   = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
 $password   = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+$auto       = filter_var($_POST['auto'], FILTER_SANITIZE_STRING);
 
-$sql = new mysql();
+$user = new uFlex();
+$user->db['host'] = $site_config['mysql']['host'];
+$user->db['user'] = $site_config['mysql']['user'];
+$user->db['pass'] = $site_config['mysql']['pass'];
+$user->db['name'] = $site_config['mysql']['db'];
+$user->login($username, $password, $auto);
 
-$query = "
-  SELECT  *
-  FROM user
-  WHERE userid   = '$username'
-    AND password = PASSWORD('$password')
-";
-print $query;
-
-$vu = $sql->getRows($query);
-Dumper($vu);
+if($user->signed) {
+  echo "User Signed In";
+} else {
+  foreach($user->error() as $err) {
+    echo $err;
+  }
+}
 ?>

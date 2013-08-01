@@ -3,12 +3,17 @@ include('../inc.php');
 ?>
 <div class="container content-box">
 <form id="user_login">
-<div>
+<label>Username:</label>
   <input type="text" id="username" name="username" value="Username" />
-</div>
-<div>
+  <br/>
+<label>Password:</label>
   <input type="password" id="password" name="password" />
-</div>
+  <br/>
+
+<label>Remember Me?:</label>
+  <input type="checkbox" name="auto" />
+  <br/>
+
 </form>
 <div>
   <button onClick="host.login();">Log on</button>

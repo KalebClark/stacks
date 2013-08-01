@@ -1,7 +1,6 @@
 <?
 include('../inc.php');
 $sql = new mysql();
-$stackid = '1';
 ?>
 <div class="container content-box"> 
   <div>
@@ -23,7 +22,7 @@ jQuery(function() {
 
   /* onLoad
   *  ====== */
-  emerge.ajax_get('ajax/host.list_books.php?stackid=<?=$stackid;?>', 'host-content');
+  emerge.ajax_get('ajax/host.list_books.php', 'host-content');
 
   /* All Events
   *  ========== */
@@ -31,7 +30,8 @@ jQuery(function() {
   jQuery('#host-add-books').on('keydown', function(e) {
     if(e.which == 13) {
       var search_term = jQuery('#host-add-books').val();
-      emerge.ajax_get('ajax/host.book_search.php?query='+search_term, 'host-content');
+      var stack_id    = jQuery('#stack_id').val();
+      emerge.ajax_get('ajax/host.book_search.php?query='+search_term+'&stack_id='+stack_id, 'host-content');
     }
   });
   jQuery('#host-list-books').off();

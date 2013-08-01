@@ -7,10 +7,10 @@ $query = "
   SELECT  books.*
       ,   stacks.lat
       ,   stacks.lon
-      ,   stacks.box_title
+      ,   stacks.stack_title
   FROM books
   LEFT JOIN stacks ON
-    books.box_id = stacks.id
+    books.stack_id = stacks.id
   WHERE author LIKE '%$search_term%'
     OR book_title LIKE '%$search_term%'
     OR category LIKE '%$search_term%'
@@ -21,6 +21,7 @@ if(count($rows) == 0) {
   print "-1";
 }
 ?>
+
 <div id="map-canvas" style="height: 340px; width: 100%;"></div>
 <div class="container">
 <div class="thumbnails-wrapper" data-results="<? print count($rows);?>">
@@ -40,7 +41,7 @@ foreach($rows as $row) {
   $markers[$i++] = array(
     'lat'   => $lat,
     'lon'   => $lon,
-    'title' => $row->box_title
+    'title' => $row->stack_title
   );
 ?>
   <li>
@@ -48,7 +49,7 @@ foreach($rows as $row) {
     <div class="book-info">
       <h4><?=$title;?></h4>
       <p><?=$author;?></p>
-      <p><?=$row->box_title;?></p>
+      <p><?=$row->stack_title;?></p>
     </div>
   </li>
 <?
@@ -100,7 +101,7 @@ function get_one_book($isbn) {
       markers[i] = new google.maps.Marker({
         position: stack_latlng,
         map: map,
-        title: val.box_title
+        title: val.stack_title
       });
 
 

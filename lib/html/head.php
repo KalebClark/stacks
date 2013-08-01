@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title><?=$site_config['site']['title'];?></title>
+<script src="http://maps.googleapis.com/maps/api/js?key=<?=$site_config['site']['google_api_key'];?>&sensor=true"></script>
 
 
   <!-- Include CSS files -->
@@ -26,8 +27,6 @@
   <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 <!--  <script src="<?=$site_config['site']['wwwroot'];?>/js/jquery-ui.min.js"></script> -->
 <!--  <script src="<?=$site_config['site']['wwwroot'];?>/js/jquery.mobile-1.3.1.js"></script> -->
-  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAJsXs9HHywzBcR_JSfcgQeWmrEyaPu28c&sensor=true">
-  </script>
 
 <!--  <script src="<?=$site_config['site']['wwwroot'];?>/js/bootstrap.min.js"></script>  Bootstrap -->
   <script src="<?=$site_config['site']['wwwroot'];?>/js/revolution.min.js"></script>

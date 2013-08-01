@@ -16,7 +16,7 @@ $row = $row[0];
 $book_count = "
   SELECT count(id) AS cnt
   FROM books
-  WHERE box_id = '$id'
+  WHERE stack_id = '$id'
 ";
 $cnt = $sql->getRows($book_count);
 $cnt = $cnt[0]->cnt;
@@ -27,7 +27,7 @@ $distance = sprintf("%1.2f", $distance);
 ?>
 <div class="stacks-list">
   <div class="span4">
-    <h4><?=$row->box_title;?></h4>
+    <h4><?=$row->stack_title;?></h4>
     <div>
       <h5>Distance</h5>
       <p><?=$distance;?> miles</p>

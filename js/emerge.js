@@ -63,6 +63,16 @@ var emerge = {
     return retVal;
   },
 
+  reload_page: function(url) {
+    jQuery.ajax({
+      url: url,
+      context: document.body,
+      success: function(s,x) {
+        jQuery(this).html(s);
+      }
+    });
+  },
+
   /* Logger function
   *  =============== */
   logger: function(message) {

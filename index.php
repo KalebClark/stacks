@@ -9,7 +9,7 @@ include(ROOT_PATH.'/lib/html/head.php');
   <div id="desktop-ajax-load" class="ajax-load"></div>
   <nav id="menu">
     <ul id="top-nav">
-      <li><a href="#" id="nav-login">Login</a></li>
+      <li><? login_link($user->signed);?></li>
       <li><a href="#" id="nav-profile">My Stacks</a></li>
     </ul>
   </nav>
@@ -31,7 +31,6 @@ include(ROOT_PATH.'/lib/html/head.php');
                 <!-- Standard Menu -->
             <nav id="menu">
                     <ul id="menu-nav">
-                        <!--<li><a href="#" onClick="search_for_book();">TEST</li> -->
                         <li class="active"><a href="/">home</a></li>
                         <li><a href="#" id="menu-stacks">stacks</a></li>
                         <li><a href="#" id="menu-genres">genres</a></li>

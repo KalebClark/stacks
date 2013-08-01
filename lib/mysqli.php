@@ -65,7 +65,7 @@ class mysql {
 
 	function insert($query) {
 		preg_match('/into (?P<table>.*).* values|\(/i', $query, $table);
-		$tableName = $table['table'];
+		$tableName = &$table['table'];
 		if($result = $this->connection->query($query)) {
 			logger("Insert($tableName): id => ".$this->connection->insert_id, 'mysql');
 			return $this->connection->insert_id;
